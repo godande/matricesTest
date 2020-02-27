@@ -184,35 +184,5 @@ class Matrix{
 
 
 int main(){
-    std::vector<double> a{1.0,2.0,3.0};
-    std::vector<double> b{4.0,5.0,6.0};
-    std::vector<std::vector<double>> initialize{a,b};
-    std::vector<std::vector<double>> initializeSwapped{b,a};
-    std::vector<std::vector<double>> initializePow{std::vector<double>{4,5,6},std::vector<double>{1,2,3},std::vector<double>{4,5,6}};
-    Matrix<double> urmom(initialize);
-    Matrix<double> urmom2(initializeSwapped);
-    Matrix<double> powed(initializePow);
-    std::cout << "Height:" <<  urmom.getHeight() << "\n";
-    std::cout << "Width:" << urmom.getWidth() << "\n";
-    Matrix<double> trans = Matrix<double>::transpose(urmom);
-    for(int i = 0; i < trans.getHeight(); i++){
-        for(int j = 0; j < trans.getWidth(); j++)
-            std::cout << trans.values[i][j] << " ";
-        std::cout << "\n";
-    }
-    std::cout << "\n";
-    Matrix<double> multed = Matrix<double>::multiplication(urmom,trans);
-    for(int i = 0; i < multed.getHeight(); i++){
-         for(int j = 0; j < multed.getWidth(); j++)
-             std::cout << multed.values[i][j] << " ";
-        std::cout << "\n";
-    }
-    std::cout << "\n";
-    Matrix<double> powder = Matrix<double>::pow(powed,2);
-    for(int i = 0; i < powder.getHeight(); i++){
-         for(int j = 0; j < powder.getWidth(); j++)
-             std::cout << powder.values[i][j] << " ";
-        std::cout << "\n";
-    }
-    std::cout << Matrix<double>::determinant(powed) << "\n";
+    
 }
