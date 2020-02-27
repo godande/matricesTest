@@ -127,10 +127,18 @@ class Matrix{
         }
         else if(a.getHeight() == 2){
             temp = a.values[0][0] * a.values[1][1] - a.values[1][0] * a.values[0][1];
+            for(int i = 0; i < a.getHeight();i++)
+            {
+                for(int j = 0; j < a.getHeight();j++){
+                    std::cout << a.values[i][j] << " ";
+                }
+                std::cout << "\n";
+            }
+            std::cout << "\n\n\n";
         }
         else{
             for(int i = 0; i < a.getHeight(); i++){
-                temp += power * a.values[i][0] * determinant(buildMatrix(a,i,0));
+                temp += power * a.values[0][i] * determinant(buildMatrix(a,i,0));
                 power = -power; 
             }
         }
@@ -161,12 +169,15 @@ class Matrix{
                 }
                 dj = 0;
                 for(int j = 0; j < a.getWidth()-1; j++){
-                    if(j = x){
+                    if(j == x){
                         dj = 1;
                     }
                     result[i][j] = a.values[i+di][j+dj];
                 }
+                
             }
+            
+            
             return Matrix<T>(result);
         }
 };
@@ -177,7 +188,7 @@ int main(){
     std::vector<double> b{4.0,5.0,6.0};
     std::vector<std::vector<double>> initialize{a,b};
     std::vector<std::vector<double>> initializeSwapped{b,a};
-    std::vector<std::vector<double>> initializePow{b,a,b};
+    std::vector<std::vector<double>> initializePow{std::vector<double>{4,5,6},std::vector<double>{1,2,3},std::vector<double>{4,5,6}};
     Matrix<double> urmom(initialize);
     Matrix<double> urmom2(initializeSwapped);
     Matrix<double> powed(initializePow);
@@ -203,5 +214,5 @@ int main(){
              std::cout << powder.values[i][j] << " ";
         std::cout << "\n";
     }
-    std::cout << Matrix<double>::determinant(powed);
+    std::cout << Matrix<double>::determinant(powed) << "\n";
 }
