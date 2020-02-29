@@ -184,5 +184,9 @@ class Matrix{
 
 
 int main(){
-    
+    std::vector<std::vector<double>> initializePow{std::vector<double>{4,5,6,7,8,9,10,2,4,5},std::vector<double>{1,2,3,7,8,9,7,1,3,2},std::vector<double>{4,5,6,7,8,9,10,2,4,5,},
+    std::vector<double>{4,5,6,7,8,9,10,2,4,5},std::vector<double>{4,5,6,7,8,9,10,2,4,5,},std::vector<double>{4,5,6,7,8,9,7,1,3,2},std::vector<double>{1,2,3,7,8,9,10,2,4,5},std::vector<double>{4,5,6,7,5,6,7,1,3,2},
+    std::vector<double>{4,5,6,7,8,9,10,2,4,5},std::vector<double>{4,5,6,7,8,9,10,2,4,5}};
+    Matrix<double> powed(initializePow);
+    std::cout << Matrix<double>::determinant(powed) << "\n";
 }
